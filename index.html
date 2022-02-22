@@ -7,13 +7,19 @@
     <title>socket io</title>
 </head>
 <body>
-    <h2>Humayun</h2>
-
+  
+<h5 id="mytime"></h5>
 
     <script src="/socket.io/socket.io.js"></script>
     <script>
+    let socket = io();
+    socket.on('message',function(msg){
+        document.getElementById('mytime').innerHTML= ""
 
-   let socket = io();
+       document.getElementById('mytime').innerHTML= msg
+    })
+
+
 
     </script>
 </body>
