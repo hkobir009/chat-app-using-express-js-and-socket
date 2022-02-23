@@ -8,19 +8,19 @@
 </head>
 <body>
   
-<input type="text" name="name" id="name">
-<input type="submit" name="submit" value="submit" onclick="send()" >
+<!-- <input type="text" name="name" id="name">
+<input type="submit" name="submit" value="submit" onclick="send()" > -->
+
+<h5 id="brodcusting" ></h5>
 
     <script src="/socket.io/socket.io.js"></script>
     <script>
     let socket = io();
 
     
-    function send(){
-        // document.getElementById('name').value='';
-       let result= document.getElementById('name').value;
-       socket.emit("myEvent",result)
-    }
+    socket.on('mybrodcust',function(data){
+        document.getElementById('brodcusting').innerHTML=data
+    })
   
 
 

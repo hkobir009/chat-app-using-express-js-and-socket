@@ -12,17 +12,9 @@ const{Server}=require('socket.io');
 const io= new Server(expressServer);
 
 
-
 io.on('connection',function(socket){
-    console.log("user connected")
-
-    
-    socket.on('myEvent',function(msg){
-        console.log(msg)
-    })
-
+    io.sockets.emit('mybrodcust','hay I am from Brodcusting.......!!')
 })
-
 
 
 
