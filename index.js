@@ -12,8 +12,17 @@ const{Server}=require('socket.io');
 const io= new Server(expressServer);
 
 
-io.on('connection',function(socket){
-    io.sockets.emit('mybrodcust','hay I am from Brodcusting.......!!')
+
+
+let buynsp= io.of('/buy');
+buynsp.on('connection',function(socket){
+    buynsp.emit('mybrodcust','hay I am from Brodcusting only buy')
+})
+
+
+let sellnsp= io.of('/sell');
+sellnsp.on('connection',function(socket){
+    sellnsp.emit('mybrodcust','hay I am from Brodcusting only sell')
 })
 
 
