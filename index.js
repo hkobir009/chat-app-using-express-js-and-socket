@@ -17,11 +17,9 @@ io.on('connection',function(socket){
     console.log("user connected")
 
     
-    setInterval(function(){
-        let d= new Date();
-        let time = d.getTime();
-        socket.emit('myevent',time)
-    },10)
+    socket.on('myEvent',function(msg){
+        console.log(msg)
+    })
 
 })
 
