@@ -20,8 +20,8 @@ io.on('connection',function(socket){
     setInterval(function(){
         let d= new Date();
         let time = d.getTime();
-        socket.send(time);
-    },1)
+        socket.emit('myevent',time)
+    },10)
 
 })
 
