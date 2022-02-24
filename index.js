@@ -13,23 +13,31 @@ const io= new Server(expressServer);
 
 
 
-
-let buynsp= io.of('/buy');
-buynsp.on('connection',function(socket){
-    buynsp.emit('mybrodcust','hay I am from Brodcusting only buy')
-})
-
-
-let sellnsp= io.of('/sell');
-sellnsp.on('connection',function(socket){
-    sellnsp.emit('mybrodcust','hay I am from Brodcusting only sell')
-})
-
-
-
 app.get('/',function(req, res){
     res.sendFile(__dirname+'/index.html')
 })
+
+
+
+io.on('connection',function(socket){
+    
+    socket.on('chat',function(yourMassage){
+        io.emit('sendChat',yourMassage)
+    })
+    
+})
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
